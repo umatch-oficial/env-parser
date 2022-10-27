@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "lib": ["es2020"],
+        "module": "commonjs",
+        "target": "es2020",
+        "outDir": "lib",
+        "composite": true,
+        "declaration": true,
+        "declarationMap": true,
+        "esModuleInterop": true,
+        "incremental": true,
+        "noEmit": false,
+        "noEmitOnError": true,
+        "strict": true
+    }
+}
