@@ -1,20 +1,17 @@
-import Validator from './index';
+import { Validator } from './index';
 
-/*
- This is the least verbose way of declaring a classes' properties in
- a way that can be accessed externally. The tradeoff is that
- properties default to public and writable.
- https://stackoverflow.com/q/43838202/9193449
-*/
 export type StringValidationOptions = {
   minLength?: number;
   maxLength?: number;
 };
-export interface StringValidator extends StringValidationOptions {}
 export class StringValidator extends Validator<string> {
+  private readonly minLength?: number;
+  private readonly maxLength?: number;
+
   public constructor(opts?: StringValidationOptions) {
     super();
-    Object.assign(this, opts);
+    this.minLength = opts?.minLength;
+    this.maxLength = opts?.maxLength;
   }
 
   protected _validate(raw: string): string {

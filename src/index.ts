@@ -1,9 +1,15 @@
+import { Env } from './env';
 import { BooleanValidator } from './Validators/BooleanValidator';
-import { NumberValidator, NumberValidationOptions } from './Validators/NumberValidator';
-import { StringValidator, StringValidationOptions } from './Validators/StringValidator';
+import {
+  NumberValidator,
+  type NumberValidationOptions,
+} from './Validators/NumberValidator';
+import {
+  StringValidator,
+  type StringValidationOptions,
+} from './Validators/StringValidator';
 
-export { default as Env } from './env';
-export class Validators {
+class Validators {
   static boolean() {
     return new BooleanValidator();
   }
@@ -17,3 +23,5 @@ export class Validators {
     return new StringValidator(options);
   }
 }
+
+export { Env, Validators };

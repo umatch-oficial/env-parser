@@ -1,23 +1,17 @@
-import Validator from './index';
+import { Validator } from './index';
 
-/*
- This is the least verbose way of declaring a classes' properties in
- a way that can be accessed externally. The tradeoff is that
- properties default to public and writable.
- https://stackoverflow.com/q/43838202/9193449
-*/
-export type NumberValidationOptions = {
-  min?: number;
-  max?: number;
-};
-export interface NumberValidator extends NumberValidationOptions {}
+export type NumberValidationOptions = { min?: number; max?: number };
+
 export class NumberValidator extends Validator<number> {
+  private readonly min?: number;
+  private readonly max?: number;
   public constructor(opts?: NumberValidationOptions) {
     super();
-    Object.assign(this, opts);
+    this.min = opts?.min;
+    this.max = opts?.max;
   }
 
-  protected _validate(raw: string): number {
+  protected _validate(raw: string) {
     const val = Number(raw);
 
     if (isNaN(val)) {
