@@ -1,6 +1,6 @@
 {
   "name": "@umatch/env-parser",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Parse and validate environment variables, with TypeScript support",
   "author": "Gabriel Okamoto <gabrielokamoto@hotmail.com>",
   "repository": "https://github.com/umatch-oficial/env-parser.git",
