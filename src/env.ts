@@ -1,9 +1,7 @@
 import type { Validator, Value } from './Validators';
 
 export class Env<Schema extends { [_: string]: Validator<Value> }> {
-  private readonly validated: {
-    readonly [K in keyof Schema]: Value;
-  };
+  private readonly validated: { readonly [K in keyof Schema]: Value };
 
   constructor(schema: Schema) {
     this.validated = this.validate(schema);
